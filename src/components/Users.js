@@ -1,25 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation,Outlet, NavLink } from "react-router-dom";
 import axios from "axios";
-// function Topic() {
-//   // The <Route> that rendered this component has a
-//   // path of `/topics/:topicId`. The `:topicId` portion
-//   // of the URL indicates a placeholder that we can
-//   // get from `useParams()`.
-//   let { topicId } = useParams();
 
-//   return (
-//     <div>
-//       <h3>{topicId}</h3>
-//     </div>
-//   );
-// }
 
 function Users() {
   const [loading, setLoading] = useState(true);
   const [users, setUsers] = useState([]);
 
-  // console.log(pathname);
 
   useEffect(() => {
     axios("https://jsonplaceholder.typicode.com/users")
@@ -27,7 +14,6 @@ function Users() {
       .finally(() => setLoading(false));
   }, []);
 
-  // const select_element = ;
 
   const style = ({ isActive }) => {
     return {
@@ -54,9 +40,13 @@ function Users() {
       <Outlet/>
         
 
-        
+
+
     </div>
   );
 }
+
+
+
 
 export default Users;
