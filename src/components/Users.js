@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation,Outlet } from "react-router-dom";
+import { Link, useLocation,Outlet, NavLink } from "react-router-dom";
 import axios from "axios";
 // function Topic() {
 //   // The <Route> that rendered this component has a
@@ -29,6 +29,14 @@ function Users() {
 
   // const select_element = ;
 
+  const style = ({ isActive }) => {
+    return {
+      backgroundColor: isActive ? "black" : "",
+      color: isActive ? "white" : "",
+    };
+  }
+
+
   
   return (
     <div>
@@ -37,7 +45,7 @@ function Users() {
       <ul>
         {users.map((user) => (
           <li key={user.id}>
-            <Link to={`${user.id}`}>{user.name}</Link>
+            <NavLink style={style} to={`${user.id}`}>{user.name}</NavLink>
           </li>
         ))}
       </ul>
